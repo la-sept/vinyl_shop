@@ -5,14 +5,8 @@
     Сортировка пользователей по рейтингу.
     SELECT username, rating FROM user ORDER BY rating;
     
-    Вывести самую часто встречающуюся в желаемом пластинку (название, исполнитель, год выпуска).
+    Вывести количество записей по году выпуска.
+    SELECT year, COUNT(id) FROM record GROUP BY year;
     
-    
-    Вывести все жанры, в которых есть записи 1990 года.
-    
-    
-    Показать коды всех предложений пользователя, не превышающих по цене 300 рублей.
-    
-    
-    Показать всех пользователей, предлагающих пластинки исполнителя "Unknown Artist".
-    SELECT username FROM 
+    Вывести пользователей, у которых больше 20 желаемых пластинок.
+    SELECT username FROM "user" INNER JOIN record_wanted ON "user".id=record_wanted.user_id GROUP BY user.id HAVING COUNT(record_id) > 20;
